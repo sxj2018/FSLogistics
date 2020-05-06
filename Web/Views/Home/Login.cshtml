@@ -1,0 +1,99 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        var _ajax = $.ajax;
+        
+        function Test() {
+            var hostName = '/'
+            //var apiUrl = hostName + 'api/';
+            $.ajax({
+                url: hostName + 'Home/getLogin',
+                type: 'post',
+                contentType: 'application/x-www-form-urlencoded',
+                async: false,
+                data: {
+                    "UserName": "admin",
+                    "Pwd": "888888"
+                },
+                success: function (data) {
+                    debugger;
+                    if (data != null) {
+                        sessionStorage.setItem("token", data);
+                        //sessionStorage.setItem("refreshtoken", data);
+                        //window.location.href = '/web/index.html';
+                    }
+                }
+            });
+        }
+        function Test2() {
+            $.ajax = function (opt) {
+                //备份opt中error和success方法
+                var fn = {
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    },
+                    success: function (data, textStatus) {
+                    }
+                }
+                if (opt.error) {
+                    fn.error = opt.error;
+                }
+                if (opt.success) {
+                    fn.success = opt.success;
+                }
+                //扩展增强处理
+                var _opt = $.extend(opt, {
+                    beforeSend: function (xhr) {
+                        if (sessionStorage.getItem("token") != null) {
+                            xhr.setRequestHeader('Authorization', sessionStorage.getItem("token"));
+                        }
+                    },
+                    complete: function (xhr, ts) {
+                        console.log(xhr)
+                        if (xhr.status == 401) {
+                            window.location.href = "/webapp/errormsg.html";
+                        }
+                    }
+                });
+                return _ajax(_opt);
+            }
+            var hostName = '/';
+            $.ajax({
+                url: hostName + 'Home/getStr',
+                type: 'post',
+                contentType: 'application/x-www-form-urlencoded',
+                async: false,
+                //data: {
+                //    "UserName": "admin",
+                //    "Pwd": "888888"
+                //},
+                success: function (data) {
+                    debugger;
+                    if (data != null) {
+                        sessionStorage.setItem("token", data);
+                        //sessionStorage.setItem("refreshtoken", data);
+                        //window.location.href = '/web/index.html';
+                    }
+                }
+            });
+        }
+
+        
+    </script>
+</head>
+<body>
+    <div>
+        <input type="button" onclick="Test()" value="登录" />
+        <input type="button" onclick="Test2()" value="跳转主页" />
+    </div>
+</body>
+</html>
