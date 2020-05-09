@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/vue/css/element.css")">
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .el-container {
+            margin: 20px;
+        }
+
+        .el-header {
+            background-color: white;
+            padding: 20px;
+            /*border: 1px solid #d7dae2;
+            border-radius: 2px*/
+            border-radius: 2px;
+            box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+            /*height:auto !important;*/
+        }
+
+        .el-main {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+            /*border: 1px solid #d7dae2;
+            border-radius: 2px;*/
+            border-radius: 2px;
+            box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .el-button {
+            cursor: pointer;
+        }
+    </style>
+    @RenderSection("Style", false)
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
+<!-- import Vue before Element -->
+<script src="@Url.Content("~/Content/vue/js/vue.js")"></script>
+<!-- import Element -->
+<script src="@Url.Content("~/Content/vue/js/element.js")"></script>
+<!-- import Axios -->
+<script src="@Url.Content("~/Content/vue/js/axios.js")"></script>
+<script src="@Url.Content("~/Content/vue/js/qs.js")"></script>
+
+@RenderSection("Script", false)
+

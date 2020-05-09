@@ -168,6 +168,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\vue\css\element.css" />
+    <Content Include="Content\vue\js\axios.js" />
+    <Content Include="Content\vue\js\element.js" />
+    <Content Include="Content\vue\js\qs.js" />
+    <Content Include="Content\vue\js\vue.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -177,12 +182,20 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\vue\css\fonts\element-icons.ttf" />
+    <Content Include="Content\vue\css\fonts\element-icons.woff" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="SQLConfig\OrderMaster.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="SQLConfig\UserMaster.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="SQLConfig\CustomerMaster.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -203,6 +216,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Shared\_LayoutVue.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
